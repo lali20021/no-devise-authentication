@@ -31,7 +31,21 @@ describe User, type: :model do
     end
 
     it 'first name cannot be too long' do
-      @user.first_name = 'a' * 25
+      @user.first_name = 'a' * 35
+      expect(@user).not_to be_valid
+    end
+
+    it 'email cannot be invalid' do
+      invalid_addresses = %w[user@example,com user_at_bla.org user.name@example. bla@bla_bla.com bla@bla+bla.com]
+
+      invalid_addresses.each do |invalid_address|
+        @user.email = invalid_address
+        expect(@user).not_to be_valid
+      end
+    end
+
+    it 'must have a unique email address' do
+      @user = User.new(first_name: 'l2', last_name: 'g2', email: 'Lali@hotmail.com')
       expect(@user).not_to be_valid
     end
 
