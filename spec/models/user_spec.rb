@@ -3,7 +3,8 @@ require 'rails_helper'
 describe User, type: :model do
   describe 'validations' do
     before do
-      @user = User.create(first_name: 'l1', last_name: 'g1', email: 'lali@hotmail.com')
+      @user = User.create(first_name: 'l1', last_name: 'g1', email: 'lali@hotmail.com',
+      password: 'password', password_confirmation: 'password')
     end
 
     it 'can be created' do
@@ -46,6 +47,16 @@ describe User, type: :model do
 
     it 'must have a unique email address' do
       @user = User.new(first_name: 'l2', last_name: 'g2', email: 'Lali@hotmail.com')
+      expect(@user).not_to be_valid
+    end
+
+    it 'password cannot be blank' do
+      @user.password = @user.password_confirmation = ' ' * 6
+      expect(@user).not_to be_valid
+    end
+
+    it 'password has to meet minimum length requirements' do
+      @user.password = @user.password_confirmation = 'a' * 5
       expect(@user).not_to be_valid
     end
 
