@@ -30,6 +30,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'foundation-rails', '~> 6.4', '>= 6.4.3.0'
 gem 'autoprefixer-rails', '~> 9.1', '>= 9.1.4'
+gem 'foundation_rails_helper', '~> 3.0'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

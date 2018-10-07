@@ -3,8 +3,39 @@
   font-size: calc(0.5em + 0.7vw);
 }
 
+h1.title{
+  text-align: center;
+}
+
 // Sign in form
 #sign_up{
   margin-top: 1rem;
   text-align: center;
+}
+
+label.error{
+  color: red;
+}
+
+small.error{
+  display: block;
+  font-size: 0.66667rem;
+  font-style: italic;
+  font-weight: normal;
+  margin-bottom: 0.88889rem;
+  margin-top: -1px;
+  padding: 0.33333rem 0.5rem 0.5rem;
+  background: #f04124;
+  color: #FFFFFF;
+}
+
+.callout{
+    position:static !important;
+}
+
+.callout.success{
+  border-radius: 24px;
+  margin: 1rem 0 0;
+  border-style: none;
+  padding: inherit;
 }
