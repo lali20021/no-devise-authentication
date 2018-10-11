@@ -171,15 +171,24 @@ sup {
 }
 
 a {
-  color: #78C2AD;
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  background-color: transparent;
-  -webkit-text-decoration-skip: objects;
+          // box-sizing: border-box;
+  padding-right: 0.8rem;
+  padding-left: 0.8rem
+
+
+
 }
+
+// color: #78C2AD;
+ // text-decoration: none;
+  // background-color: transparent;
+  // -webkit-text-decoration-skip: objects;
 
 a:hover {
   color: #4aa48a;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {
@@ -3190,6 +3199,7 @@ input[type="button"].btn-block {
 .dropdown,
 .dropleft {
   position: relative;
+  padding-left: 0.5rem;
 }
 
 .dropdown-toggle::after {

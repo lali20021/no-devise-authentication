@@ -2,28 +2,36 @@
 
 <div class="container">
   <div class="row">
-  <div class="col-sm">
+  <div class="col-sm-6.col-sm-offset-3">
     <h2>Sign Up</h2>
+
+
 
       <%= form_for @user do |f| %>
 
       <%= render 'shared/error_messages' %>
 
-        <%= f.label :first_name, 'First name' %><br>
-        <%= f.text_field :first_name %><br>
+        <div class='form-group'>
+        <%= f.label :first_name, 'First name' %>
+        <%= f.text_field :first_name, class: 'form-control' %>
+        </div>
 
-        <%= f.label :last_name, 'Last name' %><br>
-        <%= f.text_field :last_name %><br>
-
-        <%= f.label :email, 'Email' %><br>
-        <%= f.email_field :email %><br>
-
-        <%= f.label :password, 'Password' %><br>
-        <%= f.password_field :password %><br>
-
-        <%= f.label :password_confirmation, 'Password confirmation' %><br>
-        <%= f.password_field :password_confirmation %><br>
-
+        <div class='form-group'>
+        <%= f.label :last_name, 'Last name' %>
+        <%= f.text_field :last_name, class: 'form-control' %>
+      </div>
+        <div class='form-group'>
+        <%= f.label :email, 'Email' %>
+        <%= f.email_field :email, class: 'form-control' %>
+</div>
+        <div class='form-group'>
+        <%= f.label :password, 'Password' %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+        <div class='form-group'>
+        <%= f.label :password_confirmation, 'Password confirmation' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+</div>
         <%= f.submit "Create User", class: 'btn btn-secondary' %>
       <% end %>
 </div>
