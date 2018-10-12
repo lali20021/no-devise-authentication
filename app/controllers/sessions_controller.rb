@@ -6,14 +6,17 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       log_in user
-      redirect_to root_path
+      redirect_to user
       flash[:primary] = "You are now logged in."
     else
       flash.now[:danger] = 'We do not recognize your sign-in information. Please try again.'
     render 'new'
   end
+end
 
   def destroy
+    log_out
+    flash[:primary] = "You are now logged out."
+    redirect_to root_path
   end
-end
 end
