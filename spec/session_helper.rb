@@ -1,6 +1,6 @@
 require 'rails_helper'
 require 'capybara/rails'
-module SessionsHelper
+module SessionHelper
 
   def sign_up
     visit root_path
@@ -14,7 +14,7 @@ module SessionsHelper
     click_button 'Create User'
   end
 
-  def log_in(user)
+  def log_in
     visit root_path
     click_link 'Log In'
     fill_in 'Email', with: user.email

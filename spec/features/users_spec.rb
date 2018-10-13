@@ -3,7 +3,7 @@ require 'session_helper'
 require 'capybara/rails'
 
 feature 'User Account' do
-  include SessionsHelper
+  include SessionHelper
   let(:user) { FactoryBot.create(:user) }
 
   scenario 'new user sign up' do
