@@ -9,6 +9,7 @@ feature 'User Account' do
   scenario 'new user sign up' do
     sign_up
     expect(page).to have_content('User was successfully created.')
+    save_and_open_page
   end
 
   scenario 'user Log in' do

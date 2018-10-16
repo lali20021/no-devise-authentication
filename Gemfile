@@ -57,7 +57,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails', '~> 4.11', '>= 4.11.1'
   gem 'capybara', '~> 3.9'
-  #gem 'launchy', '~> 2.4', '>= 2.4.3'
+  gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.2'
 
 end
