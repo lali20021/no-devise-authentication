@@ -9,4 +9,10 @@ RSpec.describe SessionsController, type: :controller do
     end
   end
 
+  describe 'DELETE #destroy' do
+    it 'destroys the session and current user' do
+      delete :destroy
+      expect(controller.current_user).to be nil
+    end
+  end 
 end
