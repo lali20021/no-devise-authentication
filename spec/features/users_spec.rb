@@ -27,5 +27,6 @@ feature 'User Account' do
     click_link 'Log Out'
     expect(current_path).to eq root_path
     expect(page).to have_content('You are now logged out.')
+    click_link 'Log In'
    end
 end
