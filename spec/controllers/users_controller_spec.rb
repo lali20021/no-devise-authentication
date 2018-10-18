@@ -68,6 +68,15 @@ describe UsersController, type: :controller do
         expect(user_path).to redirect_to root_url
       end
     end
+
+    context 'show#index' do
+      it 'redirects index when user not logged in' do
+        get :index, params: {id: @user, user: FactoryBot.attributes_for(:user)}
+        users_path
+        expect(users_path).to redirect_to login_url
+      end
+    end 
+
     # log in as a particular user
     def log_in_as(user)
       session[:user_id] = user.id
