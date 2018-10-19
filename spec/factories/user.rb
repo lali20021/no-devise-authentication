@@ -5,6 +5,7 @@ FactoryBot.define do
     email { 'jane@example.com' }
     password { 'password' }
     password_confirmation { 'password' }
+    admin { true }
 
     factory :other_user do
       first_name { 'Jon' }
@@ -12,6 +13,7 @@ FactoryBot.define do
       email { 'jon@example.com' }
       password { 'password' }
       password_confirmation { 'password' }
+      admin { false }
 
   factory :invalid_user do
     first_name { 'J' }
@@ -22,4 +24,4 @@ FactoryBot.define do
   end
 end
 end
-end 
+end

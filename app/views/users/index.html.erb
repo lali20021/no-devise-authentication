@@ -15,15 +15,21 @@
       <th scope="col">Last Name</th>
       <th scope="col">First Name</th>
       <th scope="col">Email</th>
+      <% if current_user.admin? %>
+      <th scope="col">Delete User</th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |user| %>
     <tr>
       <th scope="row"><%= gravatar_for user, size: 50 %></th>
-      <td><%= link_to user.last_name, user %></td>
+      <td><%= link_to user.last_name, user, class: 'btn btn-link' %></td>
       <td><%= user.first_name %></td>
       <td><%= user.email %></td>
+      <% if current_user.admin? && !current_user?(user) %>
+      <td><%=link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link' %></td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>

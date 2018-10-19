@@ -50,6 +50,17 @@ describe UsersController, type: :controller do
           expect(flash[:danger]).not_to be_nil
           expect(@user).to redirect_to login_url
       end
+
+
+    it 'does not allow the admin attribute to be edited' do
+        log_in_as(@other_user)
+        process :update, method: :patch, params: {id: @other_user, user: FactoryBot.attributes_for(:other_user,
+                              first_name: 'Racheal', last_name: 'Walker', admin: true)}
+        @other_user.reload
+        expect(@other_user.first_name).to eq('Racheal')
+        expect(@other_user.last_name).to eq('Walker')
+        expect(@other_user.admin).not_to eq(true)
+      end
     end
 
     context 'only the legitimate user can edit and update' do
@@ -75,7 +86,7 @@ describe UsersController, type: :controller do
         users_path
         expect(users_path).to redirect_to login_url
       end
-    end 
+    end
 
     # log in as a particular user
     def log_in_as(user)

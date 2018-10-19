@@ -2,7 +2,8 @@ User.create!(first_name: 'Lali',
              last_name: 'Bear',
              email: 'lali20021@gmail.com',
              password: 'password',
-             password_confirmation: 'password')
+             password_confirmation: 'password',
+             admin: true)
 99.times do |n|
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
