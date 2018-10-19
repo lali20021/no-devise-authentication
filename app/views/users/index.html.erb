@@ -1,1 +1,36 @@
-<h1>Index(All users)</h1>
+<% provide(:title, 'All users') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="title">All Users</h1>
+
+
+      <%=  will_paginate @collection, renderer: BootstrapPagination::Rails %>
+
+      <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Gravatar</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <th scope="row"><%= gravatar_for user, size: 50 %></th>
+      <td><%= link_to user.last_name, user %></td>
+      <td><%= user.first_name %></td>
+      <td><%= user.email %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
+
+    </div>
+  </div>
+</div>

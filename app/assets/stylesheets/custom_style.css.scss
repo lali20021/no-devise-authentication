@@ -20,7 +20,26 @@ h2, .h2 {
   margin: 2rem 0;
 }
 
-//p{
-  //background-color: white;
-  //font-color: #666666;
-//}
+// table users index
+table{
+  margin-top: 2rem;
+  border: 2px solid black;
+  box-shadow: 3px 3px 5px #888888;
+  table-layout: fixed;
+}
+
+thead{
+  background-color: #efefef;
+}
+
+.pagination .a{
+position: relative;
+display: block;
+padding: 0.5rem 0.75rem;
+margin-left: -1px;
+line-height: 1.25;
+color: #fff;
+background-color: #78C2AD;
+border: 1px solid #78C2AD;
+
+}
