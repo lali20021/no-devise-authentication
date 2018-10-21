@@ -88,6 +88,26 @@ describe UsersController, type: :controller do
       end
     end
 
+    context 'DELETE #destroy' do
+      it 'redirects destroy when not logged in' do
+        process :destroy, method: :delete, params: {id: @user, user: FactoryBot.attributes_for(:user)}
+        expect(@user).to redirect_to login_url
+      end
+
+      it 'redirects destroy when logged in as admin' do
+        log_in_as(@other_user)
+        expect {
+          process :destroy, method: :delete, params: {id: @other_user, user: FactoryBot.attributes_for(:other_user)}}.not_to change(User, :count)
+        expect(@other_user).to redirect_to root_url
+      end
+
+      it 'deletes the user if logged in as admin' do
+        log_in_as(@user)
+        expect {
+          process :destroy, method: :delete, params: {id: @other_user, user: FactoryBot.attributes_for(:other_user)}}.to change(User, :count).by(-1)
+      end
+    end 
+
     # log in as a particular user
     def log_in_as(user)
       session[:user_id] = user.id

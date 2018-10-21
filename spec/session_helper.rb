@@ -14,7 +14,7 @@ module SessionHelper
     click_button 'Create User'
   end
 
-  def log_in
+  def log_in(user)
     visit root_path
     click_link 'Log In'
     fill_in 'Email', with: user.email
