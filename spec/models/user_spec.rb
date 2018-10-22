@@ -61,7 +61,7 @@ describe User, type: :model do
     end
 
     it 'should return false for a user with nil digest' do
-      expect(@user).not_to be_valid if @user.authenticated?(' ')
+      expect(@user).not_to be_valid if @user.authenticated?(:remember, ' ')
     end
   end
 end
