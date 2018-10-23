@@ -6,6 +6,7 @@ FactoryBot.define do
     password { 'password' }
     password_confirmation { 'password' }
     admin { true }
+    activated { false }
 
     factory :other_user do
       first_name { 'Jon' }
@@ -14,6 +15,16 @@ FactoryBot.define do
       password { 'password' }
       password_confirmation { 'password' }
       admin { false }
+      activated { true }
+
+    factory :admin do
+      first_name { 'Jay' }
+      last_name { 'Yay' }
+      email { 'jay@example.com' }
+      password { 'password' }
+      password_confirmation { 'password' }
+      admin { true }
+      activated { true }
 
   factory :invalid_user do
     first_name { 'J' }
@@ -22,6 +33,7 @@ FactoryBot.define do
     password { 'pa' }
     password_confirmation { 'pa' }
   end
+end
 end
 end
 end

@@ -5,10 +5,17 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      log_in user
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user
-      flash[:primary] = "You are now logged in."
+      if user.activated?
+        log_in user
+        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        flash[:primary] = 'You are now logged in.'
+        redirect_to user
+      else
+        message = 'Account was not activated.'
+        message += 'Check your email to activate your account.'
+        flash[:danger] = message
+        redirect_to root_url
+      end
     else
       flash.now[:danger] = 'We do not recognize your sign-in information. Please try again.'
     render 'new'
@@ -17,7 +24,7 @@ end
 
   def destroy
     log_out if logged_in?
-    flash[:primary] = "You are now logged out."
+    flash[:primary] = 'You are now logged out.'
     redirect_to root_path
   end
 end
