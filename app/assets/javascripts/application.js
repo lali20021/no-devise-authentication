@@ -18,3 +18,8 @@
 //= require turbolinks
 //= require_tree
 //= require bootstrap
+ window.setTimeout(function(){
+   $(".success, .alert, .primary").fadeTo('slow', 0).slideUp('slow', function(){
+     $(this).remove()
+   });
+ }, 3000);
