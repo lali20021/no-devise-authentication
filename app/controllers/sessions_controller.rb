@@ -25,6 +25,6 @@ end
   def destroy
     log_out if logged_in?
     flash[:primary] = 'You are now logged out.'
-    redirect_to root_path
+    check_session
   end
 end

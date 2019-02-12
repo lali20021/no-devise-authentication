@@ -23,3 +23,23 @@
      $(this).remove()
    });
  }, 3000);
+
+
+ // Safari fix back button
+ // http://www.aichengxu.com/view/47210
+ function isSafari() {
+     if (navigator.userAgent.indexOf("Safari") > -1) {
+         return true;
+     }
+     return false;
+ }
+
+
+ if (isSafari()){
+     $(window).bind('pageshow', function(event) {
+         if (event.originalEvent.persisted) {
+             document.body.style.display = "none";
+             window.location.reload(true)
+         }
+     });
+ }
